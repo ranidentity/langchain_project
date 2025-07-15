@@ -1,18 +1,10 @@
-import getpass
-import os
-from dotenv import load_dotenv
-from langchain.chat_models import init_chat_model
+
 from langchain_core.messages import BaseMessage
 from typing import List
 from services.resume_prompts_services import RESUME_CHAT_PROMPT
+from common.init_groq import init_groq
 
-load_dotenv()
-
-if not os.environ.get("GROQ_API_KEY"):
-  os.environ["GROQ_API_KEY"] = getpass.getpass("Enter API key for Groq: ")
-
-model = init_chat_model(os.environ.get("GROQ_AI_MODEL"), model_provider="groq")
-
+model = init_groq()
 
 def get_resume_chatbot_chain():
     """Returns the Langchain chain for the resume chatbot."""
@@ -42,3 +34,4 @@ def ask_resume_chatbot(msg: List[BaseMessage]) -> str:
             return f"An error occurred while processing your request: {e}"
     else:
         return "Chatbot service is not fully initialized. Please check configuration."
+    

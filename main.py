@@ -1,7 +1,7 @@
 
 from langchain.schema import HumanMessage, BaseMessage, AIMessage
 from services.chat_services import ask_resume_chatbot
-
+from services.graph_builder import stream_graph_updates
 
 def run_interactive_chatbot():
     """Runs an interactive command-line interface for the resume chatbot."""
@@ -25,6 +25,24 @@ def run_interactive_chatbot():
 
         print(f"Chatbot: {response_content}")
 
+
+
+def langgraphchatbot():
+    while True:
+        try:
+            user_input = input("User: ")
+            if user_input.lower() in ["quit", "exit", "q"]:
+                print("Goodbye!")
+                break
+            stream_graph_updates(user_input)
+        except:
+            # fallback if input() is not available
+            user_input = "What do you know about LangGraph?"
+            print("User: " + user_input)
+            stream_graph_updates(user_input)
+            break
+
+
 if __name__ == "__main__":
     # If you were setting up a web framework (e.g., FastAPI):
     # from fastapi import FastAPI
@@ -35,4 +53,6 @@ if __name__ == "__main__":
     #     return {"answer": response}
     #
     # To run this example, just call the interactive function:
-    run_interactive_chatbot()
+    # run_interactive_chatbot()
+    langgraphchatbot()
+
