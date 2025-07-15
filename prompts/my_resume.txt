@@ -1,0 +1,26 @@
+# my_resume.txt
+# (Example content - replace with your actual resume)
+
+John Doe
+Software Engineer | Python, JavaScript, Cloud
+Email: john.doe@example.com | Phone: (123) 456-7890
+
+Summary:
+Results-driven Software Engineer with 5 years of experience in developing and deploying scalable web applications and cloud solutions. Proven ability to lead projects, mentor junior developers, and optimize system performance.
+
+Experience:
+Senior Software Engineer - Tech Solutions Inc. | Jan 2022 - Present
+- Led a team of 3 engineers in developing a new microservices architecture using Python (Flask) and Kafka.
+- Implemented automated testing (pytest) and CI/CD pipelines (GitLab CI), reducing deployment failures by 25%.
+- ... (more details) ...
+
+Education:
+Master of Science in Computer Science - University of Singapore | 2020
+Bachelor of Engineering in Computer Engineering - National University of Singapore | 2016
+
+Skills:
+Programming: Python, JavaScript, Go, Java, SQL
+Cloud: AWS (EC2, S3, Lambda, RDS, VPC), Docker, Kubernetes
+Databases: PostgreSQL, MongoDB, Redis
+Frameworks: Flask, FastAPI, React, Node.js
+Tools & Methodologies: Git, Jira, Agile, Scrum, CI/CD
