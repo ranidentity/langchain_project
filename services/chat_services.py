@@ -2,9 +2,9 @@ import getpass
 import os
 from dotenv import load_dotenv
 from langchain.chat_models import init_chat_model
-from langchain_core.messages import HumanMessage
+from langchain_core.messages import BaseMessage
 from typing import List
-from services.prompts_services import RESUME_CHAT_PROMPT
+from services.resume_prompts_services import RESUME_CHAT_PROMPT
 
 load_dotenv()
 
@@ -21,18 +21,22 @@ def get_resume_chatbot_chain():
     else:
         print("Chatbot chain cannot be initialized due to missing model or resume content.")
         return None
-def get_human_message(msg: List[str]) -> List[HumanMessage]:
-    messages = HumanMessage(content=msg)
-    return messages
+    
+# def get_human_message(msg_list: List[str]) -> List[HumanMessage]:
+#     messages = []
+#     for msg in msg_list:
+#         messages = HumanMessage(content=msg)
 
-def ask_resume_chatbot(question: str) -> str:
+#     return messages
+
+def ask_resume_chatbot(msg: List[BaseMessage]) -> str:
     """
     Sends a question to the resume chatbot and returns its response.
     """
     resume_chain = get_resume_chatbot_chain()
     if resume_chain:
         try:
-            response = resume_chain.invoke({"question": get_human_message()})
+            response = resume_chain.invoke({"messages": msg})
             return response.content
         except Exception as e:
             return f"An error occurred while processing your request: {e}"

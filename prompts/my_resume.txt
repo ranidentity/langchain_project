@@ -12,7 +12,6 @@ Experience:
 Senior Software Engineer - Tech Solutions Inc. | Jan 2022 - Present
 - Led a team of 3 engineers in developing a new microservices architecture using Python (Flask) and Kafka.
 - Implemented automated testing (pytest) and CI/CD pipelines (GitLab CI), reducing deployment failures by 25%.
-- ... (more details) ...
 
 Education:
 Master of Science in Computer Science - University of Singapore | 2020
@@ -24,3 +23,8 @@ Cloud: AWS (EC2, S3, Lambda, RDS, VPC), Docker, Kubernetes
 Databases: PostgreSQL, MongoDB, Redis
 Frameworks: Flask, FastAPI, React, Node.js
 Tools & Methodologies: Git, Jira, Agile, Scrum, CI/CD
+
+Personal:
+Dedicated person
+fast learner
+responsible, independent person

@@ -1,5 +1,5 @@
 
-from langchain.schema import HumanMessage
+from langchain.schema import HumanMessage, BaseMessage, AIMessage
 from services.chat_services import ask_resume_chatbot
 
 
@@ -9,14 +9,21 @@ def run_interactive_chatbot():
     print("Ask me anything about the resume (e.g., 'What is John's experience?', 'What skills does he have?').")
     print("Type 'exit' to quit.")
 
+    conversation_history: list[BaseMessage] = []
     while True:
-        user_question = input("\nYour question: ")
-        if user_question.lower() == 'exit':
+        user_input_string = input("\nYour question: ")
+        if user_input_string.lower() == 'exit':
             print("Goodbye!")
             break
+        user_message_object = HumanMessage(content=user_input_string)
+        conversation_history.append(user_message_object)
 
-        response = ask_resume_chatbot(user_question)
-        print(f"Chatbot: {response}")
+        response_content = ask_resume_chatbot(conversation_history)
+
+        ai_message_object = AIMessage(content=response_content)
+        conversation_history.append(ai_message_object)
+
+        print(f"Chatbot: {response_content}")
 
 if __name__ == "__main__":
     # If you were setting up a web framework (e.g., FastAPI):
